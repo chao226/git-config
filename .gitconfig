@@ -1,0 +1,62 @@
+[user]
+	name = David Sellick
+	email = david@sellicknet.co.uk
+
+
+[color]
+
+                ui = auto
+
+[alias]
+
+                cp = cherry-pick
+
+                st = status -s
+
+                cl = clone
+
+                ci = commit
+
+                co = checkout
+
+                br = branch
+
+                history = log --oneline --abbrev-commit --all --graph --decorate --color
+
+                fah = !git fetch --all && gitk --all
+
+                fal = !git fetch --all && git history
+                logwk = shortlog --after='1 week ago' --pretty=format:"%h%x09%x09%ad%x09%s" -n --no-merges
+                                sac = "!f() { \
+                                                git add -A && git commit -m \"$@\"; \
+       }; f"
+
+[push]
+
+                default = matching
+[diff]
+
+                tool = diffmerge
+
+[diff "tool.diffmerge"]
+
+                cmd = diffmerge $LOCAL $REMOTE
+
+[merge]
+
+                tool = diffmerge
+
+[mergetool "diffmerge"]
+
+cmd = C:/Program\\ Files/SourceGear/Common/DiffMerge/sgdm.exe --merge --result=$MERGED $LOCAL $BASE $REMOTE
+
+                trustExitCode = true
+
+[difftool "diffmerge"]
+
+cmd = C:/Program\\ Files/SourceGear/Common/DiffMerge/sgdm.exe \"\" \"\"
+[difftool "sourcetree"]
+cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+cmd = "'' "
+trustExitCode = true
